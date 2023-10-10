@@ -9,9 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Scripts
         run: |
           docker build -t pruebahtml .
-          docker login -u pcmalaga -p dckr_pat_f-BJfR1XhIEwIr60crnATYzlX2I
+          docker login -u pcmalaga -p dckr_pat_QDsBjE1-DKuQA-Ygbo6PU9gHK2M
           docker tag pruebahtml pcmalaga/pruebahtml
