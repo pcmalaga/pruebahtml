@@ -20,6 +20,6 @@ jobs:
       - name: Build and Push Docker Image
         run: |
           docker build -t pruebahtml .
-          docker login -u pcmalaga -p dckr_pat_QDsBjE1-DKuQA-Ygbo6PU9gHK2M
+          docker login -u pcmalaga -p dckr_pat_A3hwcdnXFN1_UHtVI8r-oTlUUPM
           docker tag pruebahtml pcmalaga/pruebahtml
           docker push pcmalaga/pruebahtml
