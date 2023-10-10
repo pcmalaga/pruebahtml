@@ -1,17 +1,49 @@
 name: CI
+
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Scripts
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and Push Docker Image
         run: |
           docker build -t pruebahtml .
-          docker login -u pcmalaga -p dckr_pat_QDsBjE1-DKuQA-Ygbo6PU9gHK2M
+          docker login -u pcmalaga -p ${{ secrets.DOCKER_PAT }}
           docker tag pruebahtml pcmalaga/pruebahtml
+          docker push pcmalaga/pruebahtmlname: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and Push Docker Image
+        run: |
+          docker build -t pruebahtml .
+          docker login -u pcmalaga -p ${{ secrets.DOCKER_PAT }}
+          docker tag pruebahtml pcmalaga/pruebahtml
+          docker push pcmalaga/pruebahtml
