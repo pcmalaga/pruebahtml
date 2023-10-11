@@ -21,5 +21,5 @@ jobs:
         run: |
           docker build -t prometour-html .
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker tag prometour-html pcmalaga/prometour-html
-          docker push pcmalaga/prometour-html
+          docker tag prometour-html ${{ secrets.DOCKER_USERNAME }/prometour-html
+          docker push ${{ secrets.DOCKER_USERNAME }/prometour-html
