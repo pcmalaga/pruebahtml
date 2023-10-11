@@ -20,6 +20,6 @@ jobs:
       - name: Build and Push Docker Image
         run: |
           docker build -t pruebahtml .
-          docker login -u pcmalaga -p ${{ secrets.ScrPrometour }}
+          docker login -u pcmalaga -p ${{ secrets.SCRPROMETOUR }}
           docker tag prometour-html pcmalaga/prometour-html
           docker push pcmalaga/prometour-html
