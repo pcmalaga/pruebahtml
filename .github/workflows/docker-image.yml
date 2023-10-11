@@ -20,6 +20,6 @@ jobs:
       - name: Build and Push Docker Image
         run: |
           docker build -t prometour-html .
-          docker login -u pcmalaga -p dckr_pat_j7lRhqlXGiMpyua059S6HLBLXYE
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker tag prometour-html pcmalaga/prometour-html
           docker push pcmalaga/prometour-html
